@@ -41,9 +41,9 @@ dvc repro
 dvc dag
 
 # AWS-CICD-Deployment-with-Github-Actions
-1. Login to AWS console.
-2. Create IAM user for deployment
-## with specific access
+# 1. Login to AWS console.
+# 2. Create IAM user for deployment
+#with specific access
 
 1. EC2 access : It is virtual machine
 
@@ -67,11 +67,11 @@ dvc dag
 1. AmazonEC2ContainerRegistryFullAccess
 
 2. AmazonEC2FullAccess
-3. Create ECR repo to store/save docker image
+# 3. Create ECR repo to store/save docker image
 - Save the URI: 566373416292.dkr.ecr.us-east-1.amazonaws.com/chicken
-4. Create EC2 machine (Ubuntu)
-5. Open EC2 and Install docker in EC2 Machine:
-## optinal
+# 4. Create EC2 machine (Ubuntu)
+# 5. Open EC2 and Install docker in EC2 Machine:
+#optinal
 
 sudo apt-get update -y
 
@@ -86,9 +86,9 @@ sudo sh get-docker.sh
 sudo usermod -aG docker ubuntu
 
 newgrp docker
-6. Configure EC2 as self-hosted runner:
+# 6. Configure EC2 as self-hosted runner:
 setting>actions>runner>new self hosted runner> choose os> then run command one by one
-7. Setup github secrets:
+# 7. Setup github secrets:
 AWS_ACCESS_KEY_ID=
 
 AWS_SECRET_ACCESS_KEY=
@@ -98,18 +98,19 @@ AWS_REGION = us-east-1
 AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
 
 ECR_REPOSITORY_NAME = simple-app
-AZURE-CICD-Deployment-with-Github-Actions
-Save pass:
+
+# AZURE-CICD-Deployment-with-Github-Actions
+## Save pass:
 s3cEZKH5yytiVnJ3h+eI3qhhzf9q1vNwEi6+q+WGdd+ACRCZ7JD6
 
-Run from terminal:
+## Run from terminal:
 docker build -t chickenapp.azurecr.io/chicken:latest .
 
 docker login chickenapp.azurecr.io
 
 docker push chickenapp.azurecr.io/chicken:latest
 
-Deployment Steps:
+## Deployment Steps:
 Build the Docker image of the Source Code
 Push the Docker image to Container Registry
 Launch the Web App Server in Azure
